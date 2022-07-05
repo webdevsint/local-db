@@ -16,14 +16,14 @@ adding an entry:
 ```
 const db = new LocalDB();
 
-db.write("xyz", { message: "hello world" });
+db.write("xyz", { message: "hello world" }); // id, object
 ```
 
 reading an entry:
 ```
 const db = new LocalDB();
 
-db.read("xyz");
+db.read("xyz"); // id
 ```
 
 removing an entry:

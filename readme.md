@@ -3,7 +3,7 @@ a wrapper for localStorage on the web
 
 adding to your project:
 ```
-<script src=""></script>
+<script src="https://raw.githubusercontent.com/webdevsint/local-db/main/index.js"></script>
 ```
 
 ## usage

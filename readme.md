@@ -16,7 +16,14 @@ adding an entry:
 ```
 const db = new LocalDB();
 
-db.write("xyz", { message: "hello world" }); // id, object
+db.write("xyz", { message: "hello world!" }); // id, object
+```
+
+editing an entry:
+```
+const db = new LocalDB();
+
+db.rewrite("xyz", { message: "bye world!" }); // id, object
 ```
 
 reading an entry:

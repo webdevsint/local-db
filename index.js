@@ -24,7 +24,7 @@ function storageAvailable(type) {
 class LocalDB {
   constructor() {
     if (storageAvailable("localStorage") === false)
-      return "localStorage not enabled!";
+      console.error("localStorage not enabled!");
 
     this.bucket = bucket;
 

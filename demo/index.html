@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>todos</title>
+  </head>
+  <body>
+    <h1>My Todo List:</h1>
+    <!-- <form> -->
+    <input type="number" placeholder="add todo id:" required />
+    <input type="text" placeholder="add todo:" required />
+    <button>submit</button>
+    <!-- </form> -->
+    <hr />
+    <ul id="todos"></ul>
+    <hr />
+    <button id="clear">delete all</button>
+
+    <script src="../index.js"></script>
+    <script defer>
+      const db = new LocalDB();
+
+      // db.clear()
+
+      document.getElementById("clear").onclick = () => {
+        db.clear();
+
+        document.getElementById("todos").innerHTML = "";
+      };
+
+      document.querySelector("button").onclick = () => {
+        const id = document.querySelector('input[type="number"]').value;
+        const todo = document.querySelector('input[type="text"]').value;
+
+        const object = { todo: todo };
+
+        // writing to localStorage
+        db.write(id, object);
+
+        // updating ui state
+        const li = document.createElement("li");
+        li.innerText = todo;
+        document.getElementById("todos").appendChild(li);
+
+        // clearing input fields
+        document.querySelector('input[type="number"]').value = "";
+        document.querySelector('input[type="text"]').value = "";
+      };
+
+      // rendering db content
+      db.storage().forEach((item) => {
+        const li = document.createElement("li");
+        li.innerText = item.todo;
+        document.getElementById("todos").appendChild(li);
+      });
+    </script>
+  </body>
+</html>

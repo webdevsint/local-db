@@ -8,11 +8,9 @@
   </head>
   <body>
     <h1>My Todo List:</h1>
-    <!-- <form> -->
     <input type="number" placeholder="add todo id:" required />
     <input type="text" placeholder="add todo:" required />
     <button>submit</button>
-    <!-- </form> -->
     <hr />
     <ul id="todos"></ul>
     <hr />
@@ -22,14 +20,14 @@
     <script defer>
       const db = new LocalDB();
 
-      // db.clear()
-
+      // clearing db
       document.getElementById("clear").onclick = () => {
         db.clear();
 
         document.getElementById("todos").innerHTML = "";
       };
 
+      // writing to db
       document.querySelector("button").onclick = () => {
         const id = document.querySelector('input[type="number"]').value;
         const todo = document.querySelector('input[type="text"]').value;
